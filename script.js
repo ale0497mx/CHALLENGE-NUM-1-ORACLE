@@ -6,7 +6,7 @@ function encriptar(){
     var salida = document.getElementById("salida");
     var muñeco = document.getElementById("muñeco");
     const h1 = document.createElement("h1");
-    
+    let desencriptado = false;
 
     var txtCifrado = texto
     .replace(/e/gi, "enter")
@@ -17,16 +17,24 @@ function encriptar(){
 
     if(texto.length != 0){
         const txt1 = document.createTextNode(txtCifrado);
-        // document.getElementById("msn").value = txtCifrado;
+
         tituloM.textContent = "Texto encriptado con exito";
         document.getElementById("msn").value = "";
-        
-        // muñeco.style.display = "none";
         h1.appendChild(txt1);
         h1.style.fontSize = '32px';
-        muñeco.parentNode.replaceChild(h1, muñeco);
+
+        //Eliminar los hijos antiguos de salida
+        while(salida.firstChild){
+            salida.removeChild(salida.firstChild);
+        }
+
+        salida.appendChild(h1);
+        muñeco.style.display = 'none';
+        desencriptado = true;
     }else{
-        muñeco.src = "./img/Muñeco.png";
+        if(!desencriptado){
+            muñeco.style.display = 'block';
+        }
         tituloM.textContent ="Ningun mensaje fue encontrado";
         salida.textContent = "Ingresa el texto que deseas encriptar o desencriptar";
         swal("Ooops!", "Debes ingresar un texto", "Cuidado");
