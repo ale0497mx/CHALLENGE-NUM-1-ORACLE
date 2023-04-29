@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;500&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <img src="img/Vector.png" alt="" class="logo">
+        <!-- <img src="img/Vector.png" alt=""> -->
+    </header>
+    <main>
+    <section class="blanco">
+
+    </section>
+    <section class="main">
+        
+        <section class="contendor principal">
+        
+        <div class="parteUno">
+            <textarea class="textarea" id="msn"  name="" cols="30" rows="30" for="mensaje" placeholder="Ingrese texto aqui"></textarea>
+            <p class="pie-txt">Solo letras minusculas sin acentos</p>
+            
+        </div>
+        <div class="botones"  >
+                
+            <button class="btn encriptar" id="btn" onclick="encriptar()"> Encriptar</button>
+            <button class="btn desencriptar" type="submit" id="btn2" onclick="desencriptar()">Desencriptar</button>
+        </div>
+        
+        </section>
+        <section class="contendor secundario">
+        <div class="parteDos">
+            <img src="img/Muñeco.png" alt="" class="mono" id="muñeco">
+            <div class="mensaje-encriptado">
+                <h1 id="titulo">Ningún mensaje encontrado</h1>
+                <p id="salida">Ingrese texto que desea encriptar</p>
+            </div>
+
+        </div>
+
+        </section>
+    </section>
+    <!-- <textarea name="" id="" cols="30" rows="10"></textarea> -->
+    </main>
+    
+    <script src="script.js"></script>
+</body>
+
+</html>
