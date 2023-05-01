@@ -1,25 +1,17 @@
 
-// function copiar() {
-//     const h1 = document.querySelector("#salida h1");
-//     if (!h1) {
-//       return;
-//     }
-//     const range = document.createRange();
-//     range.selectNode(h1);
-//     window.getSelection().removeAllRanges();
-//     window.getSelection().addRange(range);
-//     document.execCommand("copy");
-//     swal("Texto copiado!", "", "success");
-//   }
 function encriptar(){
     var texto = document.getElementById("msn").value;
-    var tituloM = document.getElementById("titulo");
+    var tituloM = document.createElement("h2");
     var salida = document.getElementById("salida");
     var muñeco = document.getElementById("muñeco");
     const contenedor = document.getElementById("output");
     const h1 = document.createElement("h1");
     const btn_copy = document.createElement("button");
     let desencriptado = false;
+
+    tituloM.style.fontSize = '24px';
+    tituloM.style.marginTop = '20px';
+    tituloM.style.background = "#fff";
 
     var txtCifrado = texto
     .replace(/e/gi, "enter")
@@ -31,20 +23,32 @@ function encriptar(){
     if(texto.length != 0){
         const txt1 = document.createTextNode(txtCifrado);
 
-        tituloM.textContent = "Texto encriptado con exito";
+        tituloM.textContent = "Texto encriptado con éxito";
         document.getElementById("msn").value = "";
         h1.appendChild(txt1);
         h1.style.fontSize = '32px';
-
+        h1.style.marginTop = '100%';
+        
         //Eliminar los hijos antiguos de salida
         while(contenedor.firstChild){
             contenedor.removeChild(contenedor.firstChild);
             
         }
-        
+        // contenedor.style.outline = "1px solid red";
+        contenedor.style.width = '336px';
+        contenedor.style.height = 'auto';
         //Agregar ek boton copiar
+        
         btn_copy.textContent = "Copiar";
         btn_copy.style.borderRadius = '24px';
+        btn_copy.style.border = '1px solid #0A3871'
+        btn_copy.style.fontWeight = '400';
+        btn_copy.style.width = '336px';
+        btn_copy.style.height = '67px';
+        btn_copy.style.fontSize = '19px';
+        btn_copy.style.marginTop = '50%';
+        
+        
         btn_copy.addEventListener("click",function(){
             let range = document.createRange();
             range.selectNodeContents(h1);
@@ -69,21 +73,25 @@ function encriptar(){
         if(!desencriptado){
             muñeco.style.display = 'block';
         }
-        tituloM.textContent ="Ningun mensaje fue encontrado";
+        tituloM.textContent = "Ningún mensaje fue encontrado";
         contenedor.textContent = "Ingresa el texto que deseas encriptar o desencriptar";
-        swal("Ooops!", "Debes ingresar un texto", "Cuidado");
+        swal("Ooops!", "Debes ingresar un texto", "warning");
     }
 }
 
 function desencriptar(){
     var texto = document.getElementById("msn").value;
-    var tituloM = document.getElementById("titulo");
+    var tituloM = document.createElement("h2");
     var salida = document.getElementById("salida");
     var muñeco = document.getElementById("muñeco");
     const contenedor = document.getElementById("output");
     const h1 = document.createElement("h1");
     const btn_copy = document.createElement("button");
     let desencriptado = false;
+
+    tituloM.style.fontSize = '24px';
+    tituloM.style.marginTop = '20px';
+    tituloM.style.background = "#fff";
 
     let textoCifrado = texto
     .replace(/enter/gi, "e")
@@ -94,19 +102,31 @@ function desencriptar(){
 
     if(texto.length !=0){
         const txt1 = document.createTextNode(textoCifrado);
-        tituloM.textContent = "Texto desencriptado con éxito";
+
+        tituloM.textContent = "Texto encriptado con exito";
         document.getElementById("msn").value = "";
         h1.appendChild(txt1);
         h1.style.fontSize = '32px';
+        h1.style.marginTop = '100%';
 
         // Eliminar los hijos antiguos de salida, si los hay
         while (contenedor.firstChild) {
             contenedor.removeChild(contenedor.firstChild);
         }
+        // estilo de contenedor
+        contenedor.style.width = '336px';
+        contenedor.style.height = 'auto';
 
         //Agregar ek boton copiar
         btn_copy.textContent = "Copiar";
         btn_copy.style.borderRadius = '24px';
+        btn_copy.style.border = '1px solid #0A3871'
+        btn_copy.style.fontWeight = '400';
+        btn_copy.style.width = '336px';
+        btn_copy.style.height = '67px';
+        btn_copy.style.fontSize = '19px';
+        btn_copy.style.marginTop = '50%';
+
         btn_copy.addEventListener("click",function(){
             let range = document.createRange();
             range.selectNodeContents(h1);
@@ -136,38 +156,3 @@ function desencriptar(){
 
 
 }
-    // if(texto.length !=0){
-    //     const txt1 = document.createTextNode(textoCifrado);
-    //     tituloM.textContent = "Texto desencriptado con éxito";
-    //     document.getElementById("msn").value = "";
-    //     h1.appendChild(txt1);
-    //     h1.style.fontSize = '32px';
-    //     muñeco.parentNode.replaceChild(h1, muñeco);
-    // }else{
-    //     muñeco.src = "./img/Muñeco.png";
-    //     tituloM.textContent = "Ningún mensaje fue encontrado";
-    //     salida.textContent = "Ingresa el texto que deseas encriptar o desencriptar";
-    //     swal("Ooops!", "Debes ingresar un texto", "warning");
-    // }
-// var textarea = document.getElementById("msn");
-
-    
-    // var input = document.getElementById("msn");
-    // var btn = document.getElementById("btn");
-    // var cam = document.getElementById("cam");
-    // input.focus();
-    // btn.addEventListener("click", () => {
-    //     cam.textContent = input.value;
-    // });
-
-    // function encriptarTxt(){
-    //     var txt = input.value;
-    //     var txtEncriptado = encriptar(txt);
-    //     cam.innerText = txtEncriptado;
-    // }
-
-    // btn.addEventListener("click", encriptarTxt);
-
-    // btn.addEventListener("click", cambiar);
-// let btn = document.getElementById("btn");
-// btn.addEventListener("click", enviar);
