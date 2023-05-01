@@ -44,6 +44,7 @@ function encriptar(){
         
         //Agregar ek boton copiar
         btn_copy.textContent = "Copiar";
+        btn_copy.style.borderRadius = '24px';
         btn_copy.addEventListener("click",function(){
             let range = document.createRange();
             range.selectNodeContents(h1);
@@ -69,7 +70,7 @@ function encriptar(){
             muñeco.style.display = 'block';
         }
         tituloM.textContent ="Ningun mensaje fue encontrado";
-        salida.textContent = "Ingresa el texto que deseas encriptar o desencriptar";
+        contenedor.textContent = "Ingresa el texto que deseas encriptar o desencriptar";
         swal("Ooops!", "Debes ingresar un texto", "Cuidado");
     }
 }
@@ -79,7 +80,9 @@ function desencriptar(){
     var tituloM = document.getElementById("titulo");
     var salida = document.getElementById("salida");
     var muñeco = document.getElementById("muñeco");
+    const contenedor = document.getElementById("output");
     const h1 = document.createElement("h1");
+    const btn_copy = document.createElement("button");
     let desencriptado = false;
 
     let textoCifrado = texto
@@ -97,11 +100,28 @@ function desencriptar(){
         h1.style.fontSize = '32px';
 
         // Eliminar los hijos antiguos de salida, si los hay
-        while (salida.firstChild) {
-            salida.removeChild(salida.firstChild);
+        while (contenedor.firstChild) {
+            contenedor.removeChild(contenedor.firstChild);
         }
 
-        salida.appendChild(h1);
+        //Agregar ek boton copiar
+        btn_copy.textContent = "Copiar";
+        btn_copy.style.borderRadius = '24px';
+        btn_copy.addEventListener("click",function(){
+            let range = document.createRange();
+            range.selectNodeContents(h1);
+            let seleccion = window.getSelection();
+            seleccion.removeAllRanges();
+            seleccion.addRange(range);
+            document.execCommand("copy");
+            swal("Copiado!", "El texto se ha copiado correctamente", "success");
+        });
+
+        //agregar los ellementos a los contenedores
+        contenedor.appendChild(h1);
+        contenedor.appendChild(tituloM);
+        contenedor.appendChild(btn_copy);
+
         muñeco.style.display = 'none';
         desencriptado = true;
     } else {
@@ -110,7 +130,7 @@ function desencriptar(){
         }
 
         tituloM.textContent = "Ningún mensaje fue encontrado";
-        salida.textContent = "Ingresa el texto que deseas encriptar o desencriptar";
+        contenedor.textContent = "Ingresa el texto que deseas encriptar o desencriptar";
         swal("Ooops!", "Debes ingresar un texto", "warning");
     }
 
