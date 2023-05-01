@@ -1,11 +1,24 @@
 
-
+// function copiar() {
+//     const h1 = document.querySelector("#salida h1");
+//     if (!h1) {
+//       return;
+//     }
+//     const range = document.createRange();
+//     range.selectNode(h1);
+//     window.getSelection().removeAllRanges();
+//     window.getSelection().addRange(range);
+//     document.execCommand("copy");
+//     swal("Texto copiado!", "", "success");
+//   }
 function encriptar(){
     var texto = document.getElementById("msn").value;
     var tituloM = document.getElementById("titulo");
     var salida = document.getElementById("salida");
     var muñeco = document.getElementById("muñeco");
+    const contenedor = document.getElementById("output");
     const h1 = document.createElement("h1");
+    const btn_copy = document.createElement("button");
     let desencriptado = false;
 
     var txtCifrado = texto
@@ -24,11 +37,31 @@ function encriptar(){
         h1.style.fontSize = '32px';
 
         //Eliminar los hijos antiguos de salida
-        while(salida.firstChild){
-            salida.removeChild(salida.firstChild);
+        while(contenedor.firstChild){
+            contenedor.removeChild(contenedor.firstChild);
+            
         }
+        
+        //Agregar ek boton copiar
+        btn_copy.textContent = "Copiar";
+        btn_copy.addEventListener("click",function(){
+            let range = document.createRange();
+            range.selectNodeContents(h1);
+            let seleccion = window.getSelection();
+            seleccion.removeAllRanges();
+            seleccion.addRange(range);
+            document.execCommand("copy");
+            swal("Copiado!", "El texto se ha copiado correctamente", "success");
+        });
 
-        salida.appendChild(h1);
+        // Agregar elementos al contenedor
+        
+        contenedor.appendChild(h1);
+        contenedor.appendChild(tituloM);
+        contenedor.appendChild(btn_copy);
+
+        // agregar contenido al elemento
+        
         muñeco.style.display = 'none';
         desencriptado = true;
     }else{
