@@ -1,7 +1,15 @@
 *{
+    font-family: 'Inter', sans-serif;
+}
+body{
     background-color: #EFF1FA;
     font-family: 'Inter', sans-serif;
-    
+    /* margin: 0 auto; */
+    /* border: 0; */
+    /* outline: 1px solid red; */
+    width: 1300px;
+    margin-left: 10%;
+    height: 1070px;
 }
 
 /* aqui va el body */
@@ -16,30 +24,41 @@
 
 }
 main{
+    width: auto;
+    height: 100%;
     display: flex;
+    margin-left: 0;
 }
 .blanco{
-    width: 435px;
+    width: 100px;
+    height: auto;
 }
 .main{
     display: flex;
-    width: 1300px;
+    width: auto;
+    height:auto;
+    /* outline: 1px solid red; */
 }
 .principal{
-    width: 1000px;
+    width: auto;
+    height: 92%;
+    margin-right: 5%;
+    /* outline: 1px solid red; */
+
 }
 .parteUno{
-
-    width: 50%;
-    height: 875px;
+    /* outline: 1px solid red; */
+    width: 70%;
+    height: 85%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-left: 12%;
+    margin:0 0 1% 1%;
     /* outline: 1px solid red;s */
 }
 .textarea{
-    width: 577px;
+    background: transparent;
+    width: auto;
     height: auto;
     border: 0;
     font-weight: 400;
@@ -68,6 +87,10 @@ main{
 .textarea:focus{
     outline: none;
 }
+textarea::placeholder {
+    color: #0A3871; /* color de fuente */
+
+}
 .pie-txt{
     font-size: 12px;
     color: #495057;
@@ -83,6 +106,8 @@ main{
     justify-content: center;
 
 }
+
+
 .btn{
     width: 328px;
     height: 67px;
@@ -103,16 +128,30 @@ main{
     color: white;
     background: #0a3871;
     margin-right: 2%;
-
 }
-
+.encriptar:hover{
+    background-color:  #356EA9;
+}
+.js-btnCopy{
+    border-radius: 24px;
+    border: 1px solid #0A3871;
+    font-weight: 400px;
+    width: 336px;
+    height: 67px;
+    font-size: 19px;
+    margin-top: 50%;
+}
 .desencriptar{
     font-weight: bold;
     color: #0A3871;
-    background: #D8DFE8;
-    border-color: #0A3871;
+    /* background-color: #EFF1FA; */
+    background: #EFF1FA;
+    border-color: #0a3871;
     margin-left: 2%;
     
+}
+.desencriptar:hover{
+    background: #D8DFE8;
 }
 /* button{
     flex: none;
@@ -153,7 +192,7 @@ main{
     flex-direction: column;
     justify-content: space-evenly;
     text-align: center;
-    padding: 0px;
+    /* padding: 0px; */
     gap: 16px;
     background:white;
     /* position: absolute; */
@@ -162,6 +201,7 @@ main{
     left: 1032px;
     top: 619px;
 }
+
 .mensaje-encriptado , h1{
     width: 300px;
     height: 58px;
@@ -177,6 +217,169 @@ main{
     font-size: 16px;
 
     color: #495057;
-    align-self: stretch;
+    /* align-self: stretch; */
     flex-grow: 0;
+}
+.js-h1{
+    color: #0A3871;
+}
+.js-output{
+    color: #0A3871;
+}
+@media screen and (max-width: 768px) {
+    body{
+    width: 80%;
+    margin: 0 0 10 10px;
+    overflow-x: hidden;
+/*     outline: 1px solid yellow; */
+    }
+    
+    main{
+        height: 100%;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+/*         outline: 1px solid blue; */
+    }
+    .blanco{
+        margin: 5%;
+    }
+    .main{
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+/*         align-items: center; */
+/*     outline: 1px solid green; */
+    }
+    .principal{
+        width: 95%;
+        height: 70%;
+        margin: 0 0 5% 0 ;
+        
+/*         outline: solid coral; */
+    }
+    .parteUno{
+        width:100%;
+        height:90%;
+    }
+    .textarea{
+        font-size: 28px;
+        color: #0A3871;
+    }
+    .btn{
+        width: 100%;
+        height: 60px;
+        font-size: 14px;
+}
+
+    .secundario{
+        width: auto;
+        height: 200%;
+    }
+    .parteDos{
+
+        width: 100%;
+        height: 35%;
+    }
+    .mono{
+        display: none;
+    }
+    .mensaje-encriptado > p{
+        height: auto;
+        background: transparent;
+        text-align: center;
+    }
+}
+@media screen and (max-width: 375px) {
+    body{
+    width: 80%;
+    margin: 0 0 10 10px;
+    overflow-x: hidden;
+/*     outline: 1px solid yellow; */
+    }
+    
+    main{
+        height: 100%;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+/*         outline: 1px solid blue; */
+    }
+    .blanco{
+        margin: 5%;
+    }
+    .main{
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+/*         align-items: center; */
+/*     outline: 1px solid green; */
+    }
+    .principal{
+        width: 95%;
+        height: 70%;
+        margin: 0 0 5% 0 ;
+        
+/*         outline: solid coral; */
+    }
+    .parteUno{
+        width:100%;
+        height:90%;
+    }
+    .textarea{
+        font-size: 22px;
+        color: #0A3871;
+    }
+    .botones{
+        flex-direction: column;
+        
+    }
+    .btn{
+        margin: 5% 0 5% 0;
+        width: 100%;
+        height: 60px;
+        font-size: 14px;
+}
+
+    .secundario{
+        width: auto;
+        height: 100%;
+
+    }
+    .parteDos{
+        
+        margin: 40% 0 5% 0;
+        width: 100%;
+        height: 40%;
+    }
+    .mono{
+        display: none;
+    }
+    .mensaje-encriptado{
+/*         outline: solid coral; */
+        background: none;
+    }
+    .mensaje-encriptado > h1{
+        height: auto;
+        width: 200px;
+        background: transparent;
+        font-size: 12px;
+        margin: 0 0 5% 20%;
+
+        
+    }
+    .mensaje-encriptado > p{
+        height: auto;
+        width: 200px;
+        background: transparen;
+        font-size: 12px;
+        margin: 0 0 5% 13%;
+        
+    }
+    .js-h1{
+        font-size:14px;
+    }
+    .js-output{
+        font-size:14px;
+    }
 }
